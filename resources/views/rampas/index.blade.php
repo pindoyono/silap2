@@ -42,6 +42,12 @@
                       <i class="fas fa-user-plus"></i> Tambah BB Rampas
                     </button>
                   </a>
+                  <a href="{{route('export_rampas')}}" target="_blank">
+                    <button class="btn btn-primary">
+                      <i class="fas fa-print"></i> EXPORT EXCEL
+                    </button>
+                  </a>
+                  
                 </div>
               </div>
               <div class="card-body">
@@ -82,6 +88,11 @@
                               <!-- <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
                                   <i class="material-icons">zoom_in</i>
                               <div class="ripple-container"></div></button> -->
+                              <a href="{{route('export_pdf',$data->id)}}" target="_blank">
+                                  <button type="button" rel="tooltip" class="btn btn-primary" data-original-title="" title="">
+                                    <i class="fas fa-print"></i>
+                                  </button>
+                              </a>
                               <a href="{{route('rampas.edit',$data->id)}}">
                                   <button type="button" rel="tooltip" class="btn btn-warning" data-original-title="" title="">
                                     <i class="fas fa-edit"></i>

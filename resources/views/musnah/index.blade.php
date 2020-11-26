@@ -42,6 +42,11 @@
                       <i class="fas fa-user-plus"></i> Tambah BB Musnah
                     </button>
                   </a>
+                  <a href="{{route('export_musnah')}}" target="_blank">
+                    <button class="btn btn-primary">
+                      <i class="fas fa-print"></i> EXPORT EXCEL
+                    </button>
+                  </a>
                 </div>
               </div>
               <div class="card-body">

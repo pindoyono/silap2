@@ -15,6 +15,10 @@ use Spatie\Permission\Traits\HasRoles;
 
 use Illuminate\Support\Facades\Validator;
 
+use App\Exports\MasukExport;
+
+use Maatwebsite\Excel\Facades\Excel;
+
 class PidumController extends Controller
 {
     /**
@@ -156,4 +160,5 @@ class PidumController extends Controller
         $data->delete();
         return redirect()->route('pidum.index')->with('success', 'Berhasil Menghapus data Pengguna');
     }
+
 }
