@@ -1,5 +1,5 @@
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside style="background-color: #938876;" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('home')}}" class="brand-link">
       <img src="{{asset('adminlte/dist/img/AdminLTELogo.png')}}"

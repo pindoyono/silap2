@@ -3,6 +3,7 @@
 <html>
 <head>
     @include('includes.head')
+    
 </head>
 <body class="hold-transition sidebar-mini" style="margin-right:50px; margin-left:50px">
 <!-- Site wrapper -->
