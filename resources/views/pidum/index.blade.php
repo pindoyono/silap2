@@ -37,11 +37,14 @@
                     Daftar Barang Bukti Masuk
                 </h5>
                 <div class="card-tools">
+                @role('kajari')
+                  @else
                   <a href="{{route('pidum.create')}}">
                     <button class="btn btn-success">
                       <i class="fas fa-user-plus"></i> Tambah BB Masuk
                     </button>
                   </a>
+                  @endrole
                   <a href="{{route('export_masuk')}}" target="_blank">
                     <button class="btn btn-primary">
                       <i class="fas fa-print"></i> EXPORT EXCEL
@@ -61,7 +64,10 @@
                     <th>No BB</th>
                     <th>Nama BB</th>
                     <th>TGL Masuk</th>
+                    @role('kajari')
+                  @else
                     <th>Opsi</th>
+                  @endrole
                   </tr>
                 </thead> 
                 <tbody>
