@@ -37,11 +37,14 @@
                     Daftar Barang Bukti Kembali
                 </h5>
                 <div class="card-tools">
+                @role('kajari')
+                  @else
                   <a href="{{route('kembali.create')}}">
                     <button class="btn btn-success">
                       <i class="fas fa-user-plus"></i> Tambah BB Kembali
                     </button>
                   </a>
+                  @endrole
                   <a href="{{route('export_kembali')}}" target="_blank">
                     <button class="btn btn-primary">
                       <i class="fas fa-print"></i> EXPORT EXCEL
@@ -59,7 +62,10 @@
                     <th colspan=2>Barang Bukti</th>
                     <th colspan=2>Putusan Pengadilan</th>
                     <th colspan=2>P-48</th>
+                    @role('kajari')
+                  @else
                     <th rowspan=2>Opsi</th>
+                  @endrole
                   </tr>
                   <tr>
                     <th>No</th>
@@ -87,6 +93,8 @@
                     <td>-</td> 
                     @endif
                     </td>
+                    @role('kajari')
+                  @else
                     <td class="td-actions text-right">
                           <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('kembali.destroy', [$data->id])}}"  method="POST">
                               @csrf
@@ -105,6 +113,7 @@
                               </button>
                           </form>
                   </td>
+                  @endrole
                   </tr>      
                   @endforeach
                 </tbody></table>
