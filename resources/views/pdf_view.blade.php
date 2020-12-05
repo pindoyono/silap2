@@ -29,7 +29,7 @@ dengan disaksiakn oleh:
     Jabatan         : Pengawal Tahanan
 
 Pihak Pertama telah menyerahkan kepada Pihak Kedua dan Pihak Kedua menerima 
-dari Pihak Pertama berupa {{ $nama_bb }}
+dari Pihak Pertama berupa {{ $nama_bb }} 
 (lima ribu rupiah) atas nama terpidana <b>{{ $terdakwa }}</b> berdasarkan putusan 
 Pengadilan Negeri Malinau Nomor: {{ $no_bb }} tgl 04 Agustus 2020 untuk 
 Selanjutnya Pihak Kedua akan menyetorkan ke Kas negara.
