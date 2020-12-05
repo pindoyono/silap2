@@ -92,7 +92,7 @@
             </a>
           </li>
           @endrole
-          @role('bin')
+          @role('kaurk')
           <li class="nav-item">
             <a href="{{ route('pidum.index')}}" class="nav-link">
               <i class="nav-icon fas fa-address-card"></i>
