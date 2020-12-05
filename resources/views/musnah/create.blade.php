@@ -41,7 +41,7 @@
                     @endif
           <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Form Tambah Barang Bukti Masuk</h3>
+                <h3 class="card-title">Form Tambah Barang Bukti Musnah</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
