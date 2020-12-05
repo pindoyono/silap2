@@ -126,7 +126,7 @@
             </a>
           </li>
           @endrole
-          @role('kejati')
+          @role('kajari')
           <li class="nav-item">
             <a href="{{ route('pidum.index')}}" class="nav-link">
               <i class="nav-icon fas fa-address-card"></i>
