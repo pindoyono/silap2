@@ -31,7 +31,8 @@ class PidumController extends Controller
         //
         $data = \App\Masuk::orderBy('masuks.id','DESC')
         ->leftJoin('terdakwas', 'terdakwas.id', '=', 'masuks.terdakwa')
-        ->select('masuks.*','terdakwas.nama as nama_terdakwa')
+        ->leftJoin('jpus', 'jpus.id', '=', 'masuks.jpu')
+        ->select('masuks.*','terdakwas.nama as nama_terdakwa','jpus.nama as nama_jpu')
         ->get();
         $jpu = \App\jpu::orderBy('id','DESC')->get();
         $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
