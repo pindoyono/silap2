@@ -19,7 +19,7 @@ class RampasController extends Controller
         ->leftJoin('terdakwas', 'terdakwas.id', '=', 'rampas.terdakwa')
         ->select('rampas.*','terdakwas.nama as nama_terdakwa')
         ->get();
-        return view('rampas.index', ['data' => $data]);
+        return view('rampas.index1', ['data' => $data]);
     }
 
     /**
@@ -32,7 +32,7 @@ class RampasController extends Controller
         //
         $jpu = \App\jpu::orderBy('id','DESC')->get();
         $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
-        return view("rampas.create",['jpu' => $jpu,'terdakwa' => $terdakwa]);
+        return view("rampas.create1",['jpu' => $jpu,'terdakwa' => $terdakwa]);
     }
 
     /**
@@ -47,7 +47,6 @@ class RampasController extends Controller
          $validator = Validator::make($request->all(), [
             "no_terdakwa" => "required",
             "terdakwa" => "required",
-            "no_bb" => "required",
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -63,7 +62,6 @@ class RampasController extends Controller
         $data = new \App\Rampas;
         $data->no_terdakwa = $request->get('no_terdakwa');
         $data->terdakwa = $request->get('terdakwa');
-        $data->no_bb = $request->get('no_bb');
         $data->nama_bb = $request->get('nama_bb');
         $data->pp_no = $request->get('pp_no');
         $data->tgl_pp = date('y-m-d',strtotime($request->get('tgl_pp')));
@@ -97,7 +95,7 @@ class RampasController extends Controller
         $data = \App\Rampas::findOrFail($id);
         $jpu = \App\jpu::orderBy('id','DESC')->get();
         $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
-        return view('rampas.edit',   ['data' => $data,'jpu' => $jpu,'terdakwa' => $terdakwa
+        return view('rampas.edit1',   ['data' => $data,'jpu' => $jpu,'terdakwa' => $terdakwa
                                     ]
                                 );
     }
@@ -115,7 +113,6 @@ class RampasController extends Controller
         $validator = Validator::make($request->all(), [
             "no_terdakwa" => "required",
             "terdakwa" => "required",
-            "no_bb" => "required",
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -131,7 +128,6 @@ class RampasController extends Controller
         $data = \App\Rampas::findOrFail($id);
         $data->no_terdakwa = $request->get('no_terdakwa');
         $data->terdakwa = $request->get('terdakwa');
-        $data->no_bb = $request->get('no_bb');
         $data->nama_bb = $request->get('nama_bb');
         $data->pp_no = $request->get('pp_no');
         $data->tgl_pp = date('y-m-d',strtotime($request->get('tgl_pp')));

@@ -41,48 +41,41 @@
                     @endif
           <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Form Edit Barang Bukti Musnah</h3>
+                <h3 class="card-title">Form Tambah Barang Bukti Musnah</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" action="{{route('musnah.update',$data->id)}}" method="POST">
-              <input type="hidden" value="PUT" name="_method">
-                        @csrf
+              <form class="form-horizontal" action="{{route('musnah.store')}}" method="POST">
+              @csrf
                 <div class="card-body">
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">No Barang Bukti</label>
-                    <div class="col-sm-8">
-                      <input type="text" value="{{ $data->no_bb  }}"  class="form-control" name="no_bb" >
-                    </div>
-                  </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Barang Bukti</label>
                     <div class="col-sm-8">
-                      <input type="text" value="{{ $data->nama_bb  }}" class="form-control" name="nama_bb" >
+                      <input type="text" class="form-control" name="nama_bb" >
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">No Putusan Pengadilan</label>
                     <div class="col-sm-8">
-                      <input type="text" value="{{ $data->pp_no  }}" class="form-control" name="pp_no" >
+                      <input type="text" class="form-control" name="pp_no" >
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Putusan Pengadilan</label>
                     <div class="col-sm-8">
-                    <input type="text" name="tgl_pp" value="{{ customTanggal($data->tgl_pp,'d-m-Y')  }}" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
+                    <input type="text" name="tgl_pp" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">No P-48</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" value="{{ $data->ppp_no  }}"   name="ppp_no" >
+                      <input type="text" class="form-control" name="ppp_no" >
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Tangal P-48</label>
                     <div class="col-sm-8">
-                    <input type="text" name="tgl_ppp" value="{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
+                    <input type="text" name="tgl_ppp" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
                     </div>
                   </div>
 

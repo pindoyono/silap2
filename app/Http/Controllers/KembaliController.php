@@ -20,7 +20,7 @@ class KembaliController extends Controller
         ->leftJoin('terdakwas', 'terdakwas.id', '=', 'kembalis.terdakwa')
         ->select('kembalis.*','terdakwas.nama as nama_terdakwa')
         ->get();
-        return view('kembali.index', ['data' => $data]);
+        return view('kembali.index1', ['data' => $data]);
     }
 
     /**
@@ -35,7 +35,7 @@ class KembaliController extends Controller
         $jpu = \App\jpu::orderBy('id','DESC')->get();
         $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
 
-        return view("kembali.create",['jpu' => $jpu,'terdakwa' => $terdakwa]);
+        return view("kembali.create1",['jpu' => $jpu,'terdakwa' => $terdakwa]);
     }
 
     /**
@@ -52,7 +52,6 @@ class KembaliController extends Controller
             "tgl_serah" => "required",
             "no_terdakwa" => "required|unique:kembalis",
             "terdakwa" => "required",
-            "no_bb" => "required|unique:kembalis",
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -70,7 +69,6 @@ class KembaliController extends Controller
         $data->tgl_serah = date('y-m-d',strtotime($request->get('tgl_serah')));
         $data->no_terdakwa = $request->get('no_terdakwa');
         $data->terdakwa = $request->get('terdakwa');
-        $data->no_bb = $request->get('no_bb');
         $data->nama_bb = $request->get('nama_bb');
         $data->pp_no = $request->get('pp_no');
         $data->tgl_pp = date('y-m-d',strtotime($request->get('tgl_pp')));
@@ -105,7 +103,7 @@ class KembaliController extends Controller
         $jpu = \App\jpu::orderBy('id','DESC')->get();
         $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
 
-        return view('kembali.edit',   ['jpu' => $jpu,'terdakwa' => $terdakwa,'data' => $data
+        return view('kembali.edit1',   ['jpu' => $jpu,'terdakwa' => $terdakwa,'data' => $data
                                     ]
                                 );
     }
@@ -126,7 +124,6 @@ class KembaliController extends Controller
             "tgl_serah" => "required",
             "no_terdakwa" => "required",
             "terdakwa" => "required",
-            "no_bb" => "required",
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -142,7 +139,6 @@ class KembaliController extends Controller
         $data = \App\Kembali::findOrFail($id);
         $data->no_terdakwa = $request->get('no_terdakwa');
         $data->terdakwa = $request->get('terdakwa');
-        $data->no_bb = $request->get('no_bb');
         $data->nama_bb = $request->get('nama_bb');
         $data->pp_no = $request->get('pp_no');
         $data->tgl_pp = date('y-m-d',strtotime($request->get('tgl_pp')));

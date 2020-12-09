@@ -59,7 +59,7 @@
                 <thead class="align-middle">
                   <tr >
                     <th rowspan=2>No</th>
-                    <th colspan=2>Barang Bukti</th>
+                    <th rowspan=2>Barang Bukti</th>
                     <th colspan=2>Putusan Pengadilan</th>
                     <th colspan=2>P-48</th>
                     @role('kajari')
@@ -68,8 +68,6 @@
                   @endrole
                   </tr>
                   <tr>
-                    <th>No</th>
-                    <th>Nama BB</th>
                     <th>No</th>
                     <th>Tanggal</th>
                     <th>No</th>
@@ -80,7 +78,6 @@
                 @foreach($data as $key => $data)
                   <tr>
                     <td> {{ $key+1}}</td> 
-                    <td>{{ $data->no_bb }}</td> 
                     <td>{{ $data->nama_bb }}</td> 
                     <td>{{ $data->pp_no }}</td> 
                     <td>{{ customTanggal($data->tgl_pp,'d-m-Y')  }}</td> 

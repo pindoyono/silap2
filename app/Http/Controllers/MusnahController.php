@@ -17,7 +17,7 @@ class MusnahController extends Controller
     {
         //
         $data = \App\Musnah::orderBy('id','DESC')->get();
-        return view('musnah.index', ['data' => $data]);
+        return view('musnah.index1', ['data' => $data]);
     }
 
     /**
@@ -28,7 +28,7 @@ class MusnahController extends Controller
     public function create()
     {
         //
-        return view("musnah.create");
+        return view("musnah.create1");
     }
 
     /**
@@ -41,7 +41,6 @@ class MusnahController extends Controller
     {
         //
         $validator = Validator::make($request->all(), [
-            "no_bb" => "required",
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -55,7 +54,6 @@ class MusnahController extends Controller
 
         // return $request;
         $data = new \App\Musnah;
-        $data->no_bb = $request->get('no_bb');
         $data->nama_bb = $request->get('nama_bb');
         $data->pp_no = $request->get('pp_no');
         $data->tgl_pp = date('y-m-d',strtotime($request->get('tgl_pp')));
@@ -89,7 +87,7 @@ class MusnahController extends Controller
         //
         $data = \App\Musnah::findOrFail($id);
 
-        return view('musnah.edit',   ['data' => $data
+        return view('musnah.edit1',   ['data' => $data
                                     ]
                                 );
     }
@@ -106,7 +104,6 @@ class MusnahController extends Controller
         //
          //
          $validator = Validator::make($request->all(), [
-            "no_bb" => "required",
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -120,7 +117,6 @@ class MusnahController extends Controller
 
         // return $request;
         $data = \App\Musnah::findOrFail($id);
-        $data->no_bb = $request->get('no_bb');
         $data->nama_bb = $request->get('nama_bb');
         $data->pp_no = $request->get('pp_no');
         $data->tgl_pp = date('y-m-d',strtotime($request->get('tgl_pp')));

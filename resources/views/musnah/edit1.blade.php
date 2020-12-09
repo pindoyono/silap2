@@ -45,32 +45,10 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" action="{{route('rampas.update',$data->id)}}" method="POST">
+              <form class="form-horizontal" action="{{route('musnah.update',$data->id)}}" method="POST">
               <input type="hidden" value="PUT" name="_method">
                         @csrf
                 <div class="card-body">
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nomor</label>
-                    <div class="col-sm-8">
-                      <input type="text"  value="{{ $data->no_terdakwa  }}"  class="form-control" name="no_terdakwa" >
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Terdakwa</label>
-                    <div class="col-sm-8">
-                    <select name="terdakwa"  class="form-control select2" style="width: 100%;">
-                        @foreach($terdakwa as $key => $data1)
-                          <option value="{{$data1->id}}">{{$data1->nama.'('.$data1->nik.')'}}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">No Barang Bukti</label>
-                    <div class="col-sm-8">
-                      <input type="text" value="{{ $data->no_bb  }}"  class="form-control" name="no_bb" >
-                    </div>
-                  </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Barang Bukti</label>
                     <div class="col-sm-8">
@@ -101,14 +79,13 @@
                     <input type="text" name="tgl_ppp" value="{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
                     </div>
                   </div>
-                 
 
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">Simpan</button>
-                  <a href="{{ route('rampas.index')}}">
-                    <button class="btn btn-default float-right">Kembali</button>
+                  <a class="btn btn-default float-right" href="{{ route('musnah.index')}}">
+                    Kembali
                   </a>
                 </div>
                 <!-- /.card-footer -->
