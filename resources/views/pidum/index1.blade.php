@@ -75,7 +75,7 @@
                       <tr>
                         <td>{{ $data->no_terdakwa }}</td> 
                         <td>{{ $data->nama_terdakwa }}</td> 
-                        <td>{{ $data->nama_terdakwa }}</td> 
+                        <td>{{ $data->nama_jpu }}</td> 
                         <td>{{ $data->jenis_perkara }}</td> 
                         <td>{{ $data->no_bb }}</td> 
                         <td>{{ $data->nama_bb }}</td> 
