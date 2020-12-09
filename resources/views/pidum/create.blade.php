@@ -85,12 +85,6 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nomor Barang Bukti</label>
-                    <div class="col-sm-8">
-                      <input type="text" class="form-control" name="no_bb" >
-                    </div>
-                  </div>
-                  <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Barang Bukti</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="nama_bb" >

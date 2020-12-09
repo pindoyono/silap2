@@ -66,7 +66,6 @@ class PidumController extends Controller
             "terdakwa" => "required",
             "jpu" => "required", 
             "jenis_perkara" => "required",
-            "no_bb" => "required|unique:masuks",
             "nama_bb" => "required",
             "tgl_masuk" => "required",
         ]);
@@ -81,7 +80,6 @@ class PidumController extends Controller
         $data->terdakwa = $request->get('terdakwa');
         $data->jpu = $request->get('jpu');
         $data->jenis_perkara = $request->get('jenis_perkara');
-        $data->no_bb = $request->get('no_bb');
         $data->nama_bb = $request->get('nama_bb');
         $data->tgl_masuk = date('y-m-d',strtotime($request->get('tgl_masuk')));
         $data->save();
@@ -133,7 +131,6 @@ class PidumController extends Controller
             "terdakwa" => "required",
             "jpu" => "required", 
             "jenis_perkara" => "required",
-            "no_bb" => "required",
             "nama_bb" => "required",
             "tgl_masuk" => "required",
         ]);
@@ -148,7 +145,6 @@ class PidumController extends Controller
         $data->terdakwa = $request->get('terdakwa');
         $data->jpu = $request->get('jpu');
         $data->jenis_perkara = $request->get('jenis_perkara');
-        $data->no_bb = $request->get('no_bb'); 
         $data->nama_bb = $request->get('nama_bb');
         $data->tgl_masuk = date('y-m-d',strtotime($request->get('tgl_masuk')));
         $data->update();

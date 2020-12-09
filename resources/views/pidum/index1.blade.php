@@ -61,7 +61,6 @@
                         <th>Terdakwa</th>
                         <th>JPU</th>
                         <th>Jenis Perkara</th>
-                        <th>No BB</th>
                         <th>Nama BB</th>
                         <th>TGL Masuk</th>
                         @role('kajari')
@@ -77,7 +76,6 @@
                         <td>{{ $data->nama_terdakwa }}</td> 
                         <td>{{ $data->nama_jpu }}</td> 
                         <td>{{ $data->jenis_perkara }}</td> 
-                        <td>{{ $data->no_bb }}</td> 
                         <td>{{ $data->nama_bb }}</td> 
                         <td>{{ customTanggal($data->tgl_masuk,'d-m-Y') }}</td> 
                         </td>
