@@ -16,7 +16,10 @@ class MusnahController extends Controller
     public function index()
     {
         //
-        $data = \App\Musnah::orderBy('id','DESC')->get();
+        $data = \App\Musnah::orderBy('musnahs.id','DESC')
+        ->leftJoin('terdakwas', 'terdakwas.id', '=', 'musnahs.no_bb')
+        ->select('musnahs.*','terdakwas.nama as nama_terdakwa')
+        ->get();
         return view('musnah.index1', ['data' => $data]);
     }
 
@@ -28,7 +31,10 @@ class MusnahController extends Controller
     public function create()
     {
         //
-        return view("musnah.create1");
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
+
+        return view("musnah.create1",['jpu' => $jpu,'terdakwa' => $terdakwa,]);
     }
 
     /**
@@ -41,6 +47,7 @@ class MusnahController extends Controller
     {
         //
         $validator = Validator::make($request->all(), [
+            "terdakwa" => "required", 
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -54,6 +61,7 @@ class MusnahController extends Controller
 
         // return $request;
         $data = new \App\Musnah;
+        $data->no_bb = $request->get('terdakwa');
         $data->nama_bb = $request->get('nama_bb');
         $data->pp_no = $request->get('pp_no');
         $data->tgl_pp = date('y-m-d',strtotime($request->get('tgl_pp')));
@@ -86,8 +94,10 @@ class MusnahController extends Controller
     {
         //
         $data = \App\Musnah::findOrFail($id);
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
 
-        return view('musnah.edit1',   ['data' => $data
+        return view('musnah.edit1',   ['jpu' => $jpu,'terdakwa' => $terdakwa,'data' => $data
                                     ]
                                 );
     }
@@ -104,6 +114,7 @@ class MusnahController extends Controller
         //
          //
          $validator = Validator::make($request->all(), [
+            "terdakwa" => "required", 
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -117,6 +128,7 @@ class MusnahController extends Controller
 
         // return $request;
         $data = \App\Musnah::findOrFail($id);
+        $data->no_bb = $request->get('terdakwa');
         $data->nama_bb = $request->get('nama_bb');
         $data->pp_no = $request->get('pp_no');
         $data->tgl_pp = date('y-m-d',strtotime($request->get('tgl_pp')));

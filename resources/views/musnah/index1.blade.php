@@ -59,6 +59,7 @@
                 <thead class="align-middle">
                   <tr >
                     <th rowspan=2>No</th>
+                    <th rowspan=2>Terdakwa</th>
                     <th rowspan=2>Barang Bukti</th>
                     <th colspan=2>Putusan Pengadilan</th>
                     <th colspan=2>P-48</th>
@@ -78,6 +79,7 @@
                 @foreach($data as $key => $data)
                   <tr>
                     <td> {{ $key+1}}</td> 
+                    <td>{{ $data->nama_terdakwa }}</td> 
                     <td>{{ $data->nama_bb }}</td> 
                     <td>{{ $data->pp_no }}</td> 
                     <td>{{ customTanggal($data->tgl_pp,'d-m-Y')  }}</td> 

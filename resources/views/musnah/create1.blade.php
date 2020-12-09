@@ -49,6 +49,18 @@
               @csrf
                 <div class="card-body">
                   <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Terdakwa</label>
+                    <div class="col-sm-8">
+                      <div class="form-group">
+                        <select name="terdakwa"  class="form-control select2" style="width: 100%;">
+                          @foreach($terdakwa as $key => $data)
+                            <option value="{{$data->id}}">{{$data->nama.'('.$data->nik.')'}}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Barang Bukti</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="nama_bb" >

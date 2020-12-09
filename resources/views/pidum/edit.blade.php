@@ -49,7 +49,7 @@
               <input type="hidden" value="PUT" name="_method">
                         @csrf
                 <div class="card-body">
-                <div class="form-group row">
+                  <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Nomor</label>
                     <div class="col-sm-8">
                       <input type="text" value="{{ $data->no_terdakwa  }}" class="form-control" name="no_terdakwa" >
