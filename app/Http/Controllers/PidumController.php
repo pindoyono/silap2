@@ -36,7 +36,7 @@ class PidumController extends Controller
         ->get();
         $jpu = \App\jpu::orderBy('id','DESC')->get();
         $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
-        return view('pidum.index', ['jpu' => $jpu,'terdakwa' => $terdakwa,'data' => $data]);
+        return view('pidum.index1', ['jpu' => $jpu,'terdakwa' => $terdakwa,'data' => $data]);
     }
 
     /**
