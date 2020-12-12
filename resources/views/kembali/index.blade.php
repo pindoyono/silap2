@@ -64,6 +64,7 @@
                     <th colspan=2>P-48</th>
                     @role('kajari')
                   @else
+                    <th rowspan=2>TGL Serah Terima</th>
                     <th rowspan=2>Opsi</th>
                   @endrole
                   </tr>
@@ -80,7 +81,7 @@
                 @foreach($data as $key => $data)
                   <tr>
                     <td>{{ $data->no_terdakwa }}</td> 
-                    <td>{{ $data->terdakwa }}</td> 
+                    <td>{{ $data->nama_terdakwa }}</td> 
                     <td>{{ $data->no_bb }}</td> 
                     <td>{{ $data->nama_bb }}</td> 
                     <td>{{ $data->pp_no }}</td> 

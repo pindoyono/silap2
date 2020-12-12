@@ -16,7 +16,10 @@ class KembaliController extends Controller
     public function index()
     {
         //
-        $data = \App\Kembali::orderBy('id','DESC')->get();
+        $data = \App\Kembali::orderBy('kembalis.id','DESC')
+        ->leftJoin('terdakwas', 'terdakwas.id', '=', 'kembalis.terdakwa')
+        ->select('kembalis.*','terdakwas.nama as nama_terdakwa')
+        ->get();
         return view('kembali.index', ['data' => $data]);
     }
 
@@ -28,7 +31,11 @@ class KembaliController extends Controller
     public function create()
     {
         //
-        return view("kembali.create");
+        $data = \App\Masuk::orderBy('id','DESC')->get();
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
+
+        return view("kembali.create",['jpu' => $jpu,'terdakwa' => $terdakwa]);
     }
 
     /**
@@ -43,9 +50,9 @@ class KembaliController extends Controller
         $validator = Validator::make($request->all(), [
             "hari_serah" => "required",
             "tgl_serah" => "required",
-            "no_terdakwa" => "required",
+            "no_terdakwa" => "required|unique:kembalis",
             "terdakwa" => "required",
-            "no_bb" => "required",
+            "no_bb" => "required|unique:kembalis",
             "nama_bb" => "required", 
             "pp_no" => "required",
             "tgl_pp" => "required",
@@ -95,8 +102,10 @@ class KembaliController extends Controller
     {
         //
         $data = \App\Kembali::findOrFail($id);
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
 
-        return view('kembali.edit',   ['data' => $data
+        return view('kembali.edit',   ['jpu' => $jpu,'terdakwa' => $terdakwa,'data' => $data
                                     ]
                                 );
     }

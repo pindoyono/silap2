@@ -57,7 +57,11 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Terdakwa</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="terdakwa" >
+                      <select name="terdakwa"  class="form-control select2" style="width: 100%;">
+                        @foreach($terdakwa as $key => $data1)
+                          <option value="{{$data1->id}}">{{$data1->nama.'('.$data1->nik.')'}}</option>
+                        @endforeach
+                      </select>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -113,8 +117,8 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">Simpan</button>
-                  <a href="{{ route('kembali.index')}}">
-                    <button class="btn btn-default float-right">Kembali</button>
+                  <a  class="btn btn-default float-right" href="{{ route('kembali.index')}}">
+                    Kembali
                   </a>
                 </div>
                 <!-- /.card-footer -->

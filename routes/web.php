@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth']], function() {
     });
     Route::resources(['users' => 'UserController',]);
     Route::resources(['pidum' => 'PidumController',]);
+    Route::resources(['terdakwa' => 'TerdakwaController',]);
+    Route::resources(['jpu' => 'JpuController',]);
     Route::resources(['kembali' => 'KembaliController',]);
     Route::resources(['rampas' => 'RampasController',]);
     Route::resources(['musnah' => 'MusnahController',]);

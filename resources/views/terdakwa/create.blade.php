@@ -8,7 +8,7 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Barang Bukti Musnah <small> </small></h1>
+            <h1 class="m-0 text-dark"> Data Terdakwa <small> </small></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <!-- <ol class="breadcrumb float-sm-right">
@@ -41,78 +41,64 @@
                     @endif
           <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Form Edit Barang Bukti Musnah</h3>
+                <h3 class="card-title">Form Data Terdakwa</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" action="{{route('rampas.update',$data->id)}}" method="POST">
-              <input type="hidden" value="PUT" name="_method">
-                        @csrf
+              <form class="form-horizontal" action="{{route('terdakwa.store')}}" method="POST">
+              @csrf
                 <div class="card-body">
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nomor</label>
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nama</label>
                     <div class="col-sm-8">
-                      <input type="text"  value="{{ $data->no_terdakwa  }}"  class="form-control" name="no_terdakwa" >
+                      <input type="text" class="form-control" name="nama" >
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Terdakwa</label>
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">NIK</label>
                     <div class="col-sm-8">
-                    <select name="terdakwa"  class="form-control select2" style="width: 100%;">
-                        @foreach($terdakwa as $key => $data1)
-                          <option value="{{$data1->id}}">{{$data1->nama.'('.$data1->nik.')'}}</option>
-                        @endforeach
+                      <input type="text" class="form-control" name="nik" >
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Alamat</label>
+                    <div class="col-sm-8">
+                      <textarea name="alamat" id="" cols="85" rows="5"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Jenis Kelamin</label>
+                    <div class="col-sm-8">
+                      <select name="jenis_kelamin" class="form-control">
+                        <option value="Laki-laki"> Laki-laki</option>
+                        <option value="Laki-laki"> Perempuan</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">No Barang Bukti</label>
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">Agama</label>
                     <div class="col-sm-8">
-                      <input type="text" value="{{ $data->no_bb  }}"  class="form-control" name="no_bb" >
+                      <select name="agama" class="form-control">
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                        <option value="Katolik">Katolik</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Budha">Budha</option>
+                        <option value="Konghucu">Konghucu</option>
+                      </select>
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Barang Bukti</label>
-                    <div class="col-sm-8">
-                      <input type="text" value="{{ $data->nama_bb  }}" class="form-control" name="nama_bb" >
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">No Putusan Pengadilan</label>
-                    <div class="col-sm-8">
-                      <input type="text" value="{{ $data->pp_no  }}" class="form-control" name="pp_no" >
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Putusan Pengadilan</label>
-                    <div class="col-sm-8">
-                    <input type="text" name="tgl_pp" value="{{ customTanggal($data->tgl_pp,'d-m-Y')  }}" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">No P-48</label>
-                    <div class="col-sm-8">
-                      <input type="text" class="form-control" value="{{ $data->ppp_no  }}"   name="ppp_no" >
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">Tangal P-48</label>
-                    <div class="col-sm-8">
-                    <input type="text" name="tgl_ppp" value="{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
-                    </div>
-                  </div>
-                 
-
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">Simpan</button>
-                  <a href="{{ route('rampas.index')}}">
-                    <button class="btn btn-default float-right">Kembali</button>
+              </form>
+              
+                  <a class="btn btn-default float-right" href="{{ route('terdakwa.index')}}">
+                    Kembali
                   </a>
                 </div>
                 <!-- /.card-footer -->
-              </form>
             </div>
           </div>
           <!-- /.col-md-6 -->

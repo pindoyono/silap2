@@ -34,6 +34,22 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('terdakwa.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-address-card"></i>
+              <p>
+                Terdakwa
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('jpu.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-address-card"></i>
+              <p>
+                JPU
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('pidum.index')}}" class="nav-link">
               <i class="nav-icon fas fa-address-card"></i>
               <p>
@@ -67,6 +83,14 @@
           </li>
           @endrole
           @role('pidum')
+          <li class="nav-item">
+            <a href="{{ route('terdakwa.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-address-card"></i>
+              <p>
+                Terdakwa
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{{ route('pidum.index')}}" class="nav-link">
               <i class="nav-icon fas fa-address-card"></i>

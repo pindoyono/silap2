@@ -74,7 +74,7 @@
                 @foreach($data as $key => $data)
                   <tr>
                     <td>{{ $data->no_terdakwa }}</td> 
-                    <td>{{ $data->terdakwa }}</td> 
+                    <td>{{ $data->nama_terdakwa }}</td> 
                     <td>{{ $data->jpu }}</td> 
                     <td>{{ $data->jenis_perkara }}</td> 
                     <td>{{ $data->no_bb }}</td> 

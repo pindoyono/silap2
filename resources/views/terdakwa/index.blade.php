@@ -8,7 +8,7 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Barang Bukti Rampas <small> </small></h1>
+            <h1 class="m-0 text-dark"> Data Terdakwa <small> </small></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <!-- <ol class="breadcrumb float-sm-right">
@@ -34,74 +34,60 @@
             <div class="card card-primary card-outline">
               <div class="card-header">
                 <h5 class="card-title m-0">
-                    Daftar Barang Bukti Rampas
+                    Daftar Terdakwa 
                 </h5>
                 <div class="card-tools">
-                @role('kajari')
+                  @role('kajari')
                   @else
-                  <a href="{{route('rampas.create')}}">
+                  <a href="{{route('terdakwa.create')}}">
                     <button class="btn btn-success">
-                      <i class="fas fa-user-plus"></i> Tambah BB Rampas
+                      <i class="fas fa-user-plus"></i> Tambah Terdakwa
                     </button>
                   </a>
                   @endrole
-                  <a href="{{route('export_rampas')}}" target="_blank">
+                  <!-- <a href="{{route('export_masuk')}}" target="_blank">
                     <button class="btn btn-primary">
                       <i class="fas fa-print"></i> EXPORT EXCEL
                     </button>
-                  </a>
-                  
+                  </a> -->
                 </div>
               </div>
               <div class="card-body">
               <div class="row">
               <table class="table table-bordered">
-                <thead class="align-middle">
-                  <tr >
-                    <th rowspan=2>Nomor</th>
-                    <th rowspan=2>Terdakwa</th>
-                    <th colspan=2>Barang Bukti</th>
-                    <th colspan=2>Putusan Pengadilan</th>
-                    <th colspan=2>P-48</th>
+                <thead>
+                  <tr>
+                    <th>Nomor</th>
+                    <th>Nama</th>
+                    <th>NIK</th>
+                    <th>Alamat</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Agama</th>
                     @role('kajari')
                   @else
-                    <th rowspan=2>Opsi</th>
+                    <th>Opsi</th>
                   @endrole
-                  </tr>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama BB</th>
-                    <th>No</th>
-                    <th>Tanggal</th>
-                    <th>No</th>
-                    <th>Tanggal</th>
                   </tr>
                 </thead> 
                 <tbody>
                 @foreach($data as $key => $data)
                   <tr>
-                    <td>{{ $data->no_terdakwa }}</td> 
-                    <td>{{ $data->nama_terdakwa }}</td> 
-                    <td>{{ $data->no_bb }}</td> 
-                    <td>{{ $data->nama_bb }}</td> 
-                    <td>{{ $data->pp_no }}</td> 
-                    <td>{{ customTanggal($data->tgl_pp,'d-m-Y')  }}</td> 
-                    <td>{{ $data->ppp_no }}</td> 
-                    <td>{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}</td> 
+                    <td>{{ $key + 1 }}</td> 
+                    <td>{{ $data->nama }}</td> 
+                    <td>{{ $data->nik }}</td> 
+                    <td>{{ $data->alamat }}</td> 
+                    <td>{{ $data->jenis_kelamin }}</td> 
+                    <td>{{ $data->agama }}</td> 
+                    </td>
                     @role('kajari')
                   @else
                     <td class="td-actions text-right">
-                          <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('rampas.destroy', [$data->id])}}"  method="POST">
+                          <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('terdakwa.destroy', [$data->id])}}"  method="POST">
                               @csrf
                               <!-- <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
                                   <i class="material-icons">zoom_in</i>
                               <div class="ripple-container"></div></button> -->
-                              <a href="{{route('export_pdf',$data->id)}}" target="_blank">
-                                  <button type="button" rel="tooltip" class="btn btn-primary" data-original-title="" title="">
-                                    <i class="fas fa-print"></i>
-                                  </button>
-                              </a>
-                              <a href="{{route('rampas.edit',$data->id)}}">
+                              <a href="{{route('terdakwa.edit',$data->id)}}">
                                   <button type="button" rel="tooltip" class="btn btn-warning" data-original-title="" title="">
                                     <i class="fas fa-edit"></i>
                                   </button>

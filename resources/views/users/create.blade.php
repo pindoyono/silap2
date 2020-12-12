@@ -85,8 +85,8 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">Simpan</button>
-                  <a href="{{ route('users.index')}}">
-                    <button class="btn btn-default float-right">Kembali</button>
+                  <a class="btn btn-default float-right" href="{{ route('users.index')}}">
+                    Kembali
                   </a>
                 </div>
                 <!-- /.card-footer -->

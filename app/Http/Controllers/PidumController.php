@@ -29,8 +29,13 @@ class PidumController extends Controller
     public function index()
     {
         //
-        $data = \App\Masuk::orderBy('id','DESC')->get();
-        return view('pidum.index', ['data' => $data]);
+        $data = \App\Masuk::orderBy('masuks.id','DESC')
+        ->leftJoin('terdakwas', 'terdakwas.id', '=', 'masuks.terdakwa')
+        ->select('masuks.*','terdakwas.nama as nama_terdakwa')
+        ->get();
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
+        return view('pidum.index', ['jpu' => $jpu,'terdakwa' => $terdakwa,'data' => $data]);
     }
 
     /**
@@ -41,7 +46,9 @@ class PidumController extends Controller
     public function create()
     {
         //
-        return view("pidum.create");
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
+        return view("pidum.create",['jpu' => $jpu,'terdakwa' => $terdakwa]);
     }
 
     /**
@@ -54,11 +61,11 @@ class PidumController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            "no_terdakwa" => "required",
+            "no_terdakwa" => "required|unique:masuks",
             "terdakwa" => "required",
             "jpu" => "required", 
             "jenis_perkara" => "required",
-            "no_bb" => "required",
+            "no_bb" => "required|unique:masuks",
             "nama_bb" => "required",
             "tgl_masuk" => "required",
         ]);
@@ -103,8 +110,9 @@ class PidumController extends Controller
     {
         //
         $data = \App\Masuk::findOrFail($id);
-
-        return view('pidum.edit',   ['data' => $data
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
+        return view('pidum.edit',   ['jpu' => $jpu,'terdakwa' => $terdakwa,'data' => $data
                                     ]
                                 );
     }

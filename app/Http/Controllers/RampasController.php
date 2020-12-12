@@ -15,7 +15,10 @@ class RampasController extends Controller
     public function index()
     {
         //
-        $data = \App\Rampas::orderBy('id','DESC')->get();
+        $data = \App\Rampas::orderBy('rampas.id','DESC')
+        ->leftJoin('terdakwas', 'terdakwas.id', '=', 'rampas.terdakwa')
+        ->select('rampas.*','terdakwas.nama as nama_terdakwa')
+        ->get();
         return view('rampas.index', ['data' => $data]);
     }
 
@@ -27,7 +30,9 @@ class RampasController extends Controller
     public function create()
     {
         //
-        return view("rampas.create");
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
+        return view("rampas.create",['jpu' => $jpu,'terdakwa' => $terdakwa]);
     }
 
     /**
@@ -39,7 +44,6 @@ class RampasController extends Controller
     public function store(Request $request)
     {
         //
-         //
          $validator = Validator::make($request->all(), [
             "no_terdakwa" => "required",
             "terdakwa" => "required",
@@ -91,8 +95,9 @@ class RampasController extends Controller
     {
         //
         $data = \App\Rampas::findOrFail($id);
-
-        return view('rampas.edit',   ['data' => $data
+        $jpu = \App\jpu::orderBy('id','DESC')->get();
+        $terdakwa = \App\terdakwa::orderBy('id','DESC')->get();
+        return view('rampas.edit',   ['data' => $data,'jpu' => $jpu,'terdakwa' => $terdakwa
                                     ]
                                 );
     }
