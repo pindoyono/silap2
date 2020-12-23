@@ -37,13 +37,16 @@
                     Daftar Barang Bukti Musnah
                 </h5>
                 <div class="card-tools">
-                  @role('kajari')
-                  @else
+                @role('kajari'|'kaurk')
+                    @else
+                    @role('kaurk')
+                    @else
                   <a href="{{route('musnah.create')}}">
                     <button class="btn btn-success">
                       <i class="fas fa-user-plus"></i> Tambah BB Musnah
                     </button>
                   </a>
+                  @endrole
                   @endrole
                 
                   <a href="{{route('export_musnah')}}" target="_blank">
@@ -65,7 +68,10 @@
                     <th colspan=2>P-48</th>
                     @role('kajari')
                   @else
+                  @role('kaurk')
+                    @else
                     <th rowspan=2>Opsi</th>
+                    @endrole
                   @endrole
                   </tr>
                   <tr>
@@ -85,8 +91,10 @@
                     <td>{{ customTanggal($data->tgl_pp,'d-m-Y')  }}</td> 
                     <td>{{ $data->ppp_no }}</td> 
                     <td>{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}</td> 
-                    @role('kajari')
-                  @else
+                    @role('kajari'|'kaurk')
+                    @else
+                    @role('kaurk')
+                    @else
                     </td>
                     <td class="td-actions text-right">
                           <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('musnah.destroy', [$data->id])}}"  method="POST">
@@ -106,6 +114,7 @@
                               </button>
                           </form>
                   </td>
+                  @endrole
                   @endrole
                   </tr>      
                   @endforeach

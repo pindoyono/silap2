@@ -80,7 +80,14 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Putusan Pengadilan</label>
                     <div class="col-sm-8">
-                    <input type="text" name="tgl_pp" value="{{ customTanggal($data->tgl_pp,'d-m-Y')  }}" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
+                    <div class="form-group">
+                          <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                              <input type="text" name="tgl_pp" value="{{ customTanggal($data->tgl_pp,'d-m-Y')  }}" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                              <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -92,7 +99,14 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Tangal P-48</label>
                     <div class="col-sm-8">
-                    <input type="text" name="tgl_ppp" value="{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
+                    <div class="form-group">
+                          <div class="input-group date" id="reservationdate1" data-target-input="nearest">
+                              <input type="text" name="tgl_ppp" value="{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}" class="form-control datetimepicker-input" data-target="#reservationdate1"/>
+                              <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -104,7 +118,14 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Serah  Terima</label>
                     <div class="col-sm-8">
-                    <input type="text" name="tgl_serah" value="{{ customTanggal($data->tgl_serah,'d-m-Y')  }}" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
+                    <div class="form-group">
+                          <div class="input-group date" id="reservationdate2" data-target-input="nearest">
+                              <input type="text" name="tgl_serah" value="{{ customTanggal($data->tgl_serah,'d-m-Y')  }}" class="form-control datetimepicker-input" data-target="#reservationdate2"/>
+                              <div class="input-group-append" data-target="#reservationdate2" data-toggle="datetimepicker">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                   </div>
 

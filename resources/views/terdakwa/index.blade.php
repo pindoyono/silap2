@@ -37,8 +37,8 @@
                     Daftar Terdakwa 
                 </h5>
                 <div class="card-tools">
-                  @role('kajari')
-                  @else
+                @role('kajari'|'kaurk')
+                    @else
                   <a href="{{route('terdakwa.create')}}">
                     <button class="btn btn-success">
                       <i class="fas fa-user-plus"></i> Tambah Terdakwa
@@ -79,8 +79,8 @@
                     <td>{{ $data->jenis_kelamin }}</td> 
                     <td>{{ $data->agama }}</td> 
                     </td>
-                    @role('kajari')
-                  @else
+                    @role('kajari'|'kaurk')
+                    @else
                     <td class="td-actions text-right">
                           <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('terdakwa.destroy', [$data->id])}}"  method="POST">
                               @csrf

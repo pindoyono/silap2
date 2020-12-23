@@ -37,13 +37,16 @@
                     Daftar Barang Bukti Masuk
                 </h5>
                 <div class="card-tools">
-                @role('kajari')
-                  @else
+                @role('kajari'|'kaurk')
+                    @else
+                    @role('kaurk')
+                    @else
                   <a href="{{route('pidum.create')}}">
                     <button class="btn btn-success">
                       <i class="fas fa-user-plus"></i> Tambah BB Masuk
                     </button>
                   </a>
+                  @endrole
                   @endrole
                   <a href="{{route('export_masuk')}}" target="_blank">
                     <button class="btn btn-primary">
@@ -65,7 +68,10 @@
                         <th>TGL Masuk</th>
                         @role('kajari')
                       @else
+                      @role('kaurk')
+                    @else
                         <th>Opsi</th>
+                        @endrole
                       @endrole
                       </tr>
                     </thead> 
@@ -79,8 +85,10 @@
                         <td>{{ $data->nama_bb }}</td> 
                         <td>{{ customTanggal($data->tgl_masuk,'d-m-Y') }}</td> 
                         </td>
-                        @role('kajari')
-                      @else
+                        @role('kajari'|'kaurk')
+                    @else
+                    @role('kaurk')
+                    @else
                         <td class="td-actions text-right">
                               <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('pidum.destroy', [$data->id])}}"  method="POST">
                                   @csrf
@@ -99,6 +107,7 @@
                                   </button>
                               </form>
                       </td>
+                      @endrole
                       @endrole
                       </tr>      
                       @endforeach

@@ -93,7 +93,17 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Tangal Masuk</label>
                     <div class="col-sm-8">
-                    <input type="text" name="tgl_masuk" placeholder="DD/MM/YYYY" required pattern="(?:30))|(?:(?:0[13578]|1[02])-31))/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])" title="Enter a date in this format YYYY/MM/DD"/>
+                      <!-- Date -->
+                      <div class="form-group">
+                          <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                              <input type="text" name="tgl_masuk" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                              <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
+                      </div>
+                      
+
                     </div>
                   </div>
 
@@ -130,12 +140,7 @@
       theme: 'bootstrap4'
     })
 
-    //Datemask dd/mm/yyyy
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-    //Datemask2 mm/dd/yyyy
-    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-    //Money Euro
-    $('[data-mask]').inputmask()
+
 
     //Date range picker
     $('#reservation').daterangepicker()
@@ -188,6 +193,8 @@
     });
 
   })
+
+
 </script>
 
 @endsection
