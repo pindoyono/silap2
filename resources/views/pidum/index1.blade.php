@@ -85,7 +85,9 @@
                         <td>{{ $data->nama_bb }}</td> 
                         <td>{{ customTanggal($data->tgl_masuk,'d-m-Y') }}</td> 
                         </td>
-                        @role('kajari'|'kaurk')
+                        @role('kajari')
+                  @else
+                  @role('kaurk')
                     @else
                         <td class="td-actions text-right">
                               <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('pidum.destroy', [$data->id])}}"  method="POST">
@@ -105,6 +107,7 @@
                                   </button>
                               </form>
                       </td>
+                      @endrole
                       @endrole
                       </tr>      
                       @endforeach

@@ -91,7 +91,9 @@
                     <td>{{ customTanggal($data->tgl_pp,'d-m-Y')  }}</td> 
                     <td>{{ $data->ppp_no }}</td> 
                     <td>{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}</td> 
-                    @role('kajari'|'kaurk')
+                    @role('kajari')
+                  @else
+                  @role('kaurk')
                     @else
                     </td>
                     <td class="td-actions text-right">
@@ -112,6 +114,7 @@
                               </button>
                           </form>
                   </td>
+                  @endrole
                   @endrole
                   </tr>      
                   @endforeach
