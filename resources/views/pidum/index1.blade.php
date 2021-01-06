@@ -37,7 +37,7 @@
                     Daftar Barang Bukti Masuk
                 </h5>
                 <div class="card-tools">
-                @role('kajari'|'kaurk')
+                @role('kajari')
                     @else
                     @role('kaurk')
                     @else
