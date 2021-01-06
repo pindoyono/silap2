@@ -67,6 +67,7 @@
                     <th colspan=2>Putusan Pengadilan</th>
                     <th colspan=2>P-48</th>
                     @role('kajari'|'kaurk')
+                    <th rowspan=2>Opsi</th>
                     @else
                     @role('kaurk')
                     @else
@@ -92,6 +93,13 @@
                     <td>{{ $data->ppp_no }}</td> 
                     <td>{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}</td> 
                     @role('kajari'|'kaurk')
+                      <td class="td-actions text-right">
+                                <a href="{{route('export_pdf',$data->id)}}" target="_blank">
+                                    <button type="button" rel="tooltip" class="btn btn-primary" data-original-title="" title="">
+                                      <i class="fas fa-print"></i>
+                                    </button>
+                                </a>
+                    </td>
                     @else
                     @role('kaurk')
                     @else
