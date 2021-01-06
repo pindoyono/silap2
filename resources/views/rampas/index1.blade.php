@@ -65,10 +65,10 @@
                     <th rowspan=2>Barang Bukti</th>
                     <th colspan=2>Putusan Pengadilan</th>
                     <th colspan=2>P-48</th>
-                    @role('kajari'|'kaurk')
-                    <th rowspan=2>Opsi</th>
+                    @role('kajari')
                     @else
                     @role('kaurk')
+                    <th rowspan=2>Opsi</th>
                     @else
                     <th rowspan=2>Opsi</th>
                     @endrole
