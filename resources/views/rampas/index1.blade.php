@@ -57,8 +57,7 @@
                 </div>
               </div>
               <div class="card-body">
-              <div class="row">
-              <table class="table table-bordered">
+              <table id="example1" class="table table-bordered table-striped">
                 <thead class="align-middle">
                   <tr >
                     <th rowspan=2>Nomor</th>
@@ -132,8 +131,8 @@
                   @endrole
                   </tr>      
                   @endforeach
-                </tbody></table>
-              </div>
+                </tbody>
+                </table>
               </div>
             </div>
           </div>

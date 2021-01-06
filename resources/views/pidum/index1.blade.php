@@ -56,8 +56,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="row">
-                  <table class="table table-bordered">
+                <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>Nomor</th>
@@ -113,7 +112,6 @@
                       @endforeach
                     </tbody>
                   </table>
-                </div>
               </div>
             </div>
           </div>
