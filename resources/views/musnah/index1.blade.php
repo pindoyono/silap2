@@ -93,8 +93,6 @@
                     <td>{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}</td> 
                     @role('kajari'|'kaurk')
                     @else
-                    @role('kaurk')
-                    @else
                     </td>
                     <td class="td-actions text-right">
                           <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('musnah.destroy', [$data->id])}}"  method="POST">
@@ -114,7 +112,6 @@
                               </button>
                           </form>
                   </td>
-                  @endrole
                   @endrole
                   </tr>      
                   @endforeach

@@ -87,8 +87,6 @@
                         </td>
                         @role('kajari'|'kaurk')
                     @else
-                    @role('kaurk')
-                    @else
                         <td class="td-actions text-right">
                               <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('pidum.destroy', [$data->id])}}"  method="POST">
                                   @csrf
@@ -107,7 +105,6 @@
                                   </button>
                               </form>
                       </td>
-                      @endrole
                       @endrole
                       </tr>      
                       @endforeach

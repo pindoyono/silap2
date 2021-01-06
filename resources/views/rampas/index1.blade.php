@@ -93,17 +93,17 @@
                     <td>{{ $data->ppp_no }}</td> 
                     <td>{{ customTanggal($data->tgl_ppp,'d-m-Y')  }}</td> 
                     @role('kajari')
-                    <td class="td-actions text-right">
-                
-                              <a href="{{route('export_pdf',$data->id)}}" target="_blank">
-                                  <button type="button" rel="tooltip" class="btn btn-primary" data-original-title="" title="">
-                                    <i class="fas fa-print"></i>
-                                  </button>
-                              </a>
-                  </td>
+                  
                   @else
 
                   @role('kaurk')
+                      <td class="td-actions text-right">   
+                                  <a href="{{route('export_pdf',$data->id)}}" target="_blank">
+                                      <button type="button" rel="tooltip" class="btn btn-primary" data-original-title="" title="">
+                                        <i class="fas fa-print"></i>
+                                      </button>
+                                  </a>
+                      </td>
                     @else
                     <td class="td-actions text-right">
                           <form onsubmit="return confirm('Apakah Akan Menghapus Data Secara Permanen?')"  action="{{route('rampas.destroy', [$data->id])}}"  method="POST">
