@@ -97,7 +97,7 @@
                     <td>-</td> 
                     @endif
                     </td>
-                    @role('kajari'|'kaurk')
+                    @role('kajari')
                     @else
                     @role('kaurk')
                     @else
